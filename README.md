@@ -165,9 +165,7 @@ tests/
 
 docs/
     Case_Study_Writeup.pdf
-    WRITEUP_SOURCE.md
-    ANALYSIS_AUDIT.txt
-    DEMO_GUIDE.md
+    
 ```
 
 ## Data notes and limitations
