@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>RideOps | Recovery Desk</title>
+<link rel="stylesheet" href="/styles.css"/>
+</head><body>
+<div class="app-shell">
+<header class="topbar">
+  <div class="brand"><span class="brandmark">R<span class="brand-signal">•</span></span><div><div class="brandname">RideOps <span class="brand-muted">/ Recovery Desk</span></div><div class="brand-sub">Support operations · decision workspace</div></div></div>
+  <div class="top-meta"><span class="pulse"></span><span>Historical snapshot · 30 Sep 2026</span><a class="header-link" href="/api/export/queue.csv">Export triage queue ↗</a></div>
+</header>
+<main>
+<section class="intro">
+  <div><div class="eyebrow">SUPPORT LEAD'S WORKSPACE <span class="eyebrow-separator">/</span> V0</div><h1>Make every open ticket<br/><em>someone's next action.</em></h1><p class="intro-copy">A practical queue for finding stuck work, checking the handoff, and keeping a reliable record. Built on the case study's actual 1,444-ticket CSV—not a mock screen.</p></div>
+  <div class="brief-card"><div class="brief-label">THE CURRENT PROBLEM</div><div class="brief-figure">+60<span>%</span></div><div class="brief-desc">Open backlog, July → September</div><div class="brief-foot">30 → 48 tickets at month-end*</div></div>
+</section>
+<section class="metric-grid" id="metricGrid"><div class="metric placeholder">Loading ticket metrics…</div></section>
+<section class="insight-grid">
+  <article class="surface"><div class="section-head"><div><span class="section-kicker">01 / TREND</span><h2>Demand grew faster than the buffer</h2></div><span class="mini-pill">July—September 2026</span></div><div class="trend" id="monthChart"></div><p class="footnote">*Historical backlog is estimated using ticket creation and final closure times. Reopen timestamps are not supplied; September's 48 is the exact snapshot count.</p></article>
+  <article class="surface"><div class="section-head"><div><span class="section-kicker">02 / PRESSURE POINTS</span><h2>Where today's work is stuck</h2></div></div><div id="categoryChart"></div><div class="insight-callout" id="insightCallout"></div></article>
+</section>
+<section class="workspace" id="worklist">
+  <div class="section-head work-head"><div><span class="section-kicker">03 / LIVE DEMO WORKFLOW</span><h2>Prioritised action queue</h2><p class="sub">Select a ticket to open its suggested next step, category checks and validated engineering handoff.</p></div><div class="work-actions"><a href="/api/export/queue.csv" class="ghost-button">↓ Export queue CSV</a></div></div>
+  <div class="workspace-grid">
+    <div class="surface queue-panel">
+      <div class="filters"><input id="search" type="search" placeholder="Search ticket, category, client, description…" aria-label="Search queue"/><select id="filterPriority"><option value="">All priorities</option></select><select id="filterLane"><option value="">All next steps</option></select><select id="filterOwner"><option value="">All L1 owners</option></select></div>
+      <div class="table-meta"><span id="filteredCount">Open-ticket queue</span><span>Ranked by severity, age and rework — no prediction model</span></div>
+      <div class="table-scroll"><table class="queue-table"><thead><tr><th>Ticket / client</th><th>Priority</th><th>Age</th><th>Next action</th><th>Signals</th><th></th></tr></thead><tbody id="queueRows"><tr><td colspan="6">Loading…</td></tr></tbody></table></div>
+    </div>
+    <aside class="surface ticket-panel" id="ticketDetail"><div class="empty-detail"><div class="empty-icon">↗</div><h3>Choose a ticket</h3><p>The tool will suggest what to check next. You make the decision; it never closes a ticket on your behalf.</p></div></aside>
+  </div>
+</section>
+<section class="surface activity-panel" id="activitySection"><div class="section-head"><div><span class="section-kicker">04 / AUDITABLE EXECUTION</span><h2>Local action log</h2><p class="sub">Actions are recorded in SQLite and can be exported for the real ticketing system. No source rows are overwritten.</p></div><div class="work-actions"><a href="/api/export/actions.csv" class="ghost-button">↓ Actions CSV</a><a href="/api/export/handoffs.csv" class="ghost-button">↓ Handoffs CSV</a></div></div><div id="activityLog" class="activity-list"></div></section>
+<footer><span>RideOps · Recovery Desk v0 · built for Support Lead</span><span>Local-only · offline-capable · does not send client data anywhere</span></footer>
+</main></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="/app.js" defer></script>
+</body></html>
